@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ExternalLink, MapPin, Star } from "lucide-react";
 import React from "react";
-const accent = "from-emerald-500 via-emerald-400 to-emerald-500"; // neon emerald accents
+const accent = "from-emerald-500 via-emerald-400 to-emerald-500";
 const glass = "backdrop-blur-md bg-white/5 border border-white/10";
 
 const Section = ({ id, title, children }) => (
@@ -55,6 +55,29 @@ const ProjectCard = ({ title, desc, tags = [], live, code, img }) => (
           {t}
         </span>
       ))}
+    </div>
+
+    <div className="mt-4 flex gap-3">
+      {live && (
+        <a
+          href={live}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1 rounded-lg border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-emerald-100 hover:bg-emerald-400/20 transition text-sm"
+        >
+          <ExternalLink className="size-4" /> Live
+        </a>
+      )}
+      {code && (
+        <a
+          href={code}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1 rounded-lg border border-white/10 px-3 py-1 text-white/70 hover:border-white/30 hover:text-white transition text-sm"
+        >
+          <Github className="size-4" /> Code
+        </a>
+      )}
     </div>
   </motion.div>
 );
@@ -210,43 +233,45 @@ export default function Portfolio() {
           ))}
         </div>
       </Section>
+   <Section id="projects" title="Featured Projects">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ProjectCard
+            title="Super Grocer"
+            desc="An advanced Next.js & Tailwind CSS project with GSAP animations. Includes smooth product interactions, modern UI, and a fully responsive design."
+            tags={["Next.JS","Tailwind CSS", "GSAP","Animation"]}
+            live="https://next-js-website-v1fr.vercel.app/"
+            code="https://github.com/iqrazartasha33/Next.-JS-Website-"
+            img="/Super.png"
+          />
+          
+          <ProjectCard
+            title="Portfolio Builder"
+            desc="A full-stack web app with signup/login authentication and a dynamic portfolio builder. Users can create and customize their portfolio using Node.js, Express, React, MongoDB, and Tailwind CSS."
+            tags={["React.JS", "Node.js", "Express.JS", "MongoDB", "Tailwind CSS"]}
+            live="https://final-hackathon-smit-in-frontend.vercel.app/"
+            code="https://github.com/iqrazartasha33/Final-Hackathon-SMIT-In-Frontend"
+            img="/Builder.png"
+          />
 
-<Section id="projects" title="Featured Projects">
-<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <ProjectCard
-      title="Super Grocer"
-      desc="An advanced Next.js & Tailwind CSS project with GSAP animations. Includes smooth product interactions, modern UI, and a fully responsive design."
-      tags={["Next.JS","Tailwind CSS", "GSAP"]}
-      live="https://next-js-website-v1fr.vercel.app/"
-      img="/Super.png"
-    />
-    
-    <ProjectCard
-      title="Portfolio Builder"
-      desc="A full-stack web app with signup/login authentication and a dynamic portfolio builder. Users can create and customize their portfolio using Node.js, Express, React, MongoDB, and Tailwind CSS."
-      tags={["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"]}
-      live="https://final-hackathon-smit-in-frontend.vercel.app/"
-      img="/Builder.png"
-    />
+          <ProjectCard
+            title="Calculator"
+            desc="A responsive calculator built with React and Tailwind CSS. Supports basic arithmetic operations with a clean and modern UI."
+            tags={["React.JS", "Tailwind CSS", "Animation"]}
+            live="https://calculator-built-with-react-js.vercel.app/"
+            code="https://github.com/iqrazartasha33/Calculator-Built-With-React.JS-"
+            img="/Calculator.png" 
+          />
 
-    <ProjectCard
-      title="Calculator"
-      desc="A responsive calculator built with React and Tailwind CSS. Supports basic arithmetic operations with a clean and modern UI."
-      tags={["React", "Tailwind CSS"]}
-      live="https://calculator-built-with-react-js.vercel.app/"
-  img="/Calculator.png" 
-    />
-
-    <ProjectCard
-      title="Crispy Craze!"
-      desc="A React-based food menu app with card layouts and smooth navigation using React Router. Fully responsive with a modern UI."
-      tags={["React", "Tailwind CSS", "Routing"]}
-      live="https://react-hackathon-b25924.netlify.app/"
-      img="/Crispy.png"
-    />
-  </div>
-</Section>
-
+          <ProjectCard
+            title="Crispy Craze!"
+            desc="A React-based food menu app with card layouts and smooth navigation using React Router. Fully responsive with a modern UI."
+            tags={["React.JS", "Tailwind CSS", " React Routing"]}
+            live="https://react-hackathon-b25924.netlify.app/"
+            code="https://github.com/iqrazartasha33/React-Hackathon-SMIT"
+            img="/Crispy.png"
+          />
+        </div>
+      </Section>
 
       <Section id="contact" title="Contact">
         <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 ${glass} rounded-2xl p-6 md:p-8`}>
